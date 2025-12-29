@@ -13,7 +13,7 @@ import { LanguageSwitch } from '@/components/LanguageSwitch';
 import { useConversationHistory } from '@/hooks/useConversationHistory';
 import { useLanguage } from '@/hooks/useLanguage';
 import { submitChat, pollTaskResult, fileToBase64, type FileData } from '@/lib/api';
-import { AlertCircle, RefreshCw } from 'lucide-react';
+import { AlertCircle, RefreshCw, Github } from 'lucide-react';
 
 export default function HomePage() {
   const { language, t } = useLanguage();
@@ -163,6 +163,16 @@ export default function HomePage() {
           <h2 className="font-medium text-gray-900 truncate flex-1">
             {currentConversation?.title || t.appName}
           </h2>
+          <a
+            href="https://github.com/feixukeji/truth-seeker"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-1.5 px-2 py-1.5 text-sm text-gray-600 hover:text-gray-900 hover:bg-gray-100 rounded-md transition-colors"
+            title="GitHub Repository"
+          >
+            <Github className="w-4 h-4" />
+            <span className="hidden sm:inline">GitHub</span>
+          </a>
           <LanguageSwitch />
         </header>
 
