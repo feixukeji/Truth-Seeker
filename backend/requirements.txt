@@ -1,0 +1,16 @@
+# FastAPI and server
+fastapi
+uvicorn[standard]
+python-multipart
+
+# Google GenAI SDK
+google-genai
+
+# HTTP client for Semantic Scholar API
+httpx
+
+# Environment variables
+python-dotenv
+
+# CORS
+starlette

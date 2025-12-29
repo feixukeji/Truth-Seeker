@@ -1,0 +1,330 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 23, 23, 23;
+  --background-rgb: 250, 250, 250;
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: rgb(var(--background-rgb));
+}
+
+/* Markdown 样式 */
+.markdown-content {
+  @apply text-gray-800 leading-relaxed;
+}
+
+.markdown-content h1 {
+  @apply text-2xl font-bold mt-6 mb-4 text-gray-900;
+}
+
+.markdown-content h2 {
+  @apply text-xl font-bold mt-5 mb-3 text-gray-900;
+}
+
+.markdown-content h3 {
+  @apply text-lg font-semibold mt-4 mb-2 text-gray-900;
+}
+
+.markdown-content p {
+  @apply my-3;
+}
+
+.markdown-content ul,
+.markdown-content ol {
+  @apply my-3 ml-6;
+}
+
+.markdown-content ul {
+  @apply list-disc;
+}
+
+.markdown-content ol {
+  @apply list-decimal;
+}
+
+.markdown-content li {
+  @apply my-1;
+}
+
+.markdown-content a {
+  @apply text-gray-700 hover:text-gray-900 underline;
+}
+
+.markdown-content code {
+  @apply bg-gray-100 px-1.5 py-0.5 rounded text-sm font-mono text-gray-800;
+}
+
+.markdown-content pre {
+  @apply bg-gray-100 p-4 rounded-lg overflow-x-auto my-4;
+}
+
+.markdown-content pre code {
+  @apply bg-transparent p-0;
+}
+
+.markdown-content blockquote {
+  @apply border-l-4 border-gray-300 pl-4 my-4 text-gray-600 italic;
+}
+
+.markdown-content hr {
+  @apply my-6 border-gray-300;
+}
+
+.markdown-content table {
+  @apply w-full my-4 border-collapse;
+}
+
+.markdown-content th,
+.markdown-content td {
+  @apply border border-gray-300 px-4 py-2 text-left;
+}
+
+.markdown-content th {
+  @apply bg-gray-100 font-semibold;
+}
+
+.markdown-content strong {
+  @apply font-semibold text-gray-900;
+}
+
+.markdown-content em {
+  @apply italic;
+}
+
+/* 滚动条样式 */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-gray-100 rounded;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-gray-300 rounded hover:bg-gray-400;
+}
+
+/* 移动端优化 */
+@media (max-width: 640px) {
+  .markdown-content {
+    @apply text-sm;
+  }
+  
+  .markdown-content h1 {
+    @apply text-xl;
+  }
+  
+  .markdown-content h2 {
+    @apply text-lg;
+  }
+  
+  .markdown-content h3 {
+    @apply text-base;
+  }
+}
+
+/* 加载动画 */
+.typing-indicator {
+  display: flex;
+  gap: 4px;
+  padding: 8px 0;
+}
+
+.typing-indicator span {
+  width: 8px;
+  height: 8px;
+  background-color: #94a3b8;
+  border-radius: 50%;
+  animation: bounce 1.4s infinite ease-in-out both;
+}
+
+.typing-indicator span:nth-child(1) {
+  animation-delay: -0.32s;
+}
+
+.typing-indicator span:nth-child(2) {
+  animation-delay: -0.16s;
+}
+
+@keyframes bounce {
+  0%, 80%, 100% {
+    transform: scale(0);
+  }
+  40% {
+    transform: scale(1);
+  }
+}
+
+/* ==================== 思考动画效果 ==================== */
+
+/* 头像呼吸动画 */
+.thinking-avatar {
+  animation: avatar-pulse 2s ease-in-out infinite;
+  box-shadow: 0 0 0 0 rgba(75, 85, 99, 0.4);
+}
+
+@keyframes avatar-pulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(75, 85, 99, 0.4);
+    transform: scale(1);
+  }
+  50% {
+    box-shadow: 0 0 0 8px rgba(75, 85, 99, 0);
+    transform: scale(1.05);
+  }
+}
+
+/* 思考图标动画 */
+.thinking-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  background: linear-gradient(135deg, rgba(255,255,255,0.9), rgba(248,250,252,0.9));
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  animation: icon-float 2s ease-in-out infinite;
+}
+
+@keyframes icon-float {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-3px) rotate(-3deg);
+  }
+  75% {
+    transform: translateY(3px) rotate(3deg);
+  }
+}
+
+/* 文字渐入效果 */
+.thinking-text {
+  animation: text-fade 3s ease-in-out infinite;
+}
+
+@keyframes text-fade {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+/* 进度条容器 */
+.thinking-progress-container {
+  width: 200px;
+  height: 4px;
+  background: linear-gradient(90deg, #e2e8f0, #f1f5f9);
+  border-radius: 2px;
+  overflow: hidden;
+  position: relative;
+}
+
+/* 进度条动画 */
+.thinking-progress-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 40%;
+  background: linear-gradient(90deg, #6366f1, #8b5cf6, #a855f7);
+  border-radius: 2px;
+  animation: progress-slide 1.5s ease-in-out infinite;
+}
+
+@keyframes progress-slide {
+  0% {
+    left: -40%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+/* 思考粒子容器 */
+.thinking-particles {
+  display: flex;
+  gap: 6px;
+  height: 8px;
+  align-items: center;
+}
+
+/* 粒子动画 */
+.particle {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #60a5fa, #a78bfa);
+  animation: particle-dance 1.5s ease-in-out infinite;
+}
+
+.particle:nth-child(1) { animation-delay: 0s; background: #60a5fa; }
+.particle:nth-child(2) { animation-delay: 0.15s; background: #818cf8; }
+.particle:nth-child(3) { animation-delay: 0.3s; background: #a78bfa; }
+.particle:nth-child(4) { animation-delay: 0.45s; background: #c084fc; }
+.particle:nth-child(5) { animation-delay: 0.6s; background: #e879f9; }
+
+@keyframes particle-dance {
+  0%, 100% {
+    transform: scale(0.8) translateY(0);
+    opacity: 0.5;
+  }
+  50% {
+    transform: scale(1.2) translateY(-4px);
+    opacity: 1;
+  }
+}
+
+/* 排队指示器 */
+.queue-indicator {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+}
+
+.queue-circle {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #94a3b8;
+  animation: queue-pulse 1.2s ease-in-out infinite;
+}
+
+.queue-circle:nth-child(1) { animation-delay: 0s; }
+.queue-circle:nth-child(2) { animation-delay: 0.2s; }
+.queue-circle:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes queue-pulse {
+  0%, 100% {
+    transform: scale(0.7);
+    background: #cbd5e1;
+  }
+  50% {
+    transform: scale(1);
+    background: #64748b;
+  }
+}
+
+/* 渐入动画类 */
+.fade-in {
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
